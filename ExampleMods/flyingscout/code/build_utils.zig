@@ -56,7 +56,7 @@ pub fn addModules(
         .{ .name = "basis", .module = basisModule },
         .{ .name = "timbre", .module = timbreModule },
     });
-    const meanslibModule = createLibraryModuleWithImports(b, meansLibPath, "MeansLib/src/meanslib.zig", &.{
+    const meanslibModule = createLibraryModuleWithImports(b, meansLibPath, "src/meanslib.zig", &.{
         .{ .name = "basis", .module = basisModule },
         .{ .name = "trampoline", .module = trampolineModule },
         .{ .name = "timbre", .module = timbreModule },
