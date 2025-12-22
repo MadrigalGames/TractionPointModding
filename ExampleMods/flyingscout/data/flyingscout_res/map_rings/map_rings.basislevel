@@ -1,0 +1,1274 @@
+{
+    "fileVersion": 18,
+    "cameraPos": [
+        34.40892028808594,
+        89.70769500732422,
+        -92.00633239746094
+    ],
+    "cameraRot": [
+        0.6773196458816528,
+        -0.06844169646501541,
+        -0.7287874817848206,
+        0.07363886386156082
+    ],
+    "objectSelectionGroups": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    "sunlight": {
+        "enabled": true,
+        "azimuth": 55,
+        "elevation": 45,
+        "diffuse": [
+            153,
+            153,
+            153,
+            255
+        ],
+        "specular": [
+            51,
+            51,
+            51,
+            255
+        ],
+        "intensity": 1.0,
+        "shadowsEnabled": true,
+        "cascadeCount": 4,
+        "cascadeDistanceList": [
+            50.0,
+            80.0,
+            150.0,
+            500.0
+        ],
+        "shadowMapSize": 2048,
+        "shadowStrength": 1.0
+    },
+    "layers": [
+        {
+            "name": "Base",
+            "autoLoad": true,
+            "locked": false,
+            "gameObjects": [
+                {
+                    "name": "Base:Terrain1",
+                    "type": "Terrain/Terrain",
+                    "pos": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "rot": [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "terrain": {
+                            "mLowDetailScaleDownFactor": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mMediumDetailScaleDownFactor": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPreviewCPUTesselationInEditor": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mQuadSize": {
+                                "value": [
+                                    1.0,
+                                    1.0
+                                ],
+                                "type": 14
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Base:SkySphere",
+                    "type": "Graphical/SkySphere",
+                    "exposedPropertyValues": {
+                        "sky": {
+                            "mRenderSun": {
+                                "value": true,
+                                "type": 11
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Base:LevelSettings",
+                    "type": "Common/LevelSettings",
+                    "exposedPropertyValues": {
+                        "ambienceController": {
+                            "mExponentialFogDensity": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mFogEnabled": {
+                                "value": true,
+                                "type": 11
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Base:FlyingScout",
+                    "type": "Vehicles/FlyingScout",
+                    "pos": [
+                        374.3511962890625,
+                        52.37540054321289,
+                        -420.452392578125
+                    ],
+                    "rot": [
+                        0.9238795042037964,
+                        0.0,
+                        0.3826834559440613,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "aiBrain": {
+                            "overriddenNavMeshID": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "overrideNavMeshID": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "scriptCode": {
+                                "value": [
+                                    "void onCreate()",
+                                    "{",
+                                    "    // Will get called when the object is created.",
+                                    "}",
+                                    "",
+                                    "void onMessage(const gameobject &in sender, const string &in message, const messageparameters &in params)",
+                                    "{",
+                                    "    if (message == \"game_started\")",
+                                    "    {",
+                                    "        self.setSPAvatar(self.getGameObject());",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    "void onDestroy()",
+                                    "{",
+                                    "    // Will get called when the object is destroyed.",
+                                    "}",
+                                    ""
+                                ],
+                                "type": 24
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    374.3511962890625,
+                                    52.37540054321289,
+                                    -420.452392578125
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Base:TerrainCarver",
+                    "type": "Terrain/TerrainCarver",
+                    "pos": [
+                        400.75390625,
+                        -8.938995361328125,
+                        -106.83843994140625
+                    ],
+                    "rot": [
+                        0.9730475544929504,
+                        -2.352028438679099e-8,
+                        2.220446049250313e-16,
+                        -0.23060475289821625
+                    ],
+                    "exposedPropertyValues": {
+                        "geometry": {
+                            "mSize": {
+                                "value": [
+                                    100.0,
+                                    1.0,
+                                    20.0
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    400.75390625,
+                                    -8.938995361328125,
+                                    -106.83843994140625
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Base:PrimitiveGeometryObject",
+                    "type": "Common/PrimitiveGeometryObject",
+                    "pos": [
+                        411.571533203125,
+                        50.00153732299805,
+                        -107.98250579833984
+                    ],
+                    "rot": [
+                        0.7071068286895752,
+                        0.0,
+                        0.7071067690849304,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "geometry": {
+                            "mSize": {
+                                "value": [
+                                    100.0,
+                                    100.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    411.571533203125,
+                                    50.00153732299805,
+                                    -107.98250579833984
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Env",
+            "autoLoad": true,
+            "locked": false,
+            "gameObjects": [
+                {
+                    "name": "Env:SpruceCol4",
+                    "type": "Env1/SpruceCol3",
+                    "pos": [
+                        258.07513427734375,
+                        50.00153732299805,
+                        -277.46240234375
+                    ],
+                    "rot": [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    258.07513427734375,
+                                    50.00153732299805,
+                                    -277.46240234375
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Rings",
+            "autoLoad": true,
+            "locked": false,
+            "gameObjects": [
+                {
+                    "name": "Rings:Ring1",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        246.0294189453125,
+                        62.26731872558594,
+                        -293.19525146484375
+                    ],
+                    "rot": [
+                        0.9238795042037964,
+                        0.0,
+                        0.3826834559440613,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "40BBAA97-65BB-4AB9-AC24-2FDFCA0D8B3E",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    246.0294189453125,
+                                    62.26731872558594,
+                                    -293.19525146484375
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring1:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        246.0294189453125,
+                        62.26731872558594,
+                        -293.19525146484375
+                    ],
+                    "rot": [
+                        0.9238795042037964,
+                        0.0,
+                        0.3826834559440613,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    246.0294189453125,
+                                    62.26731872558594,
+                                    -293.19525146484375
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring2",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        210.674072265625,
+                        62.26731872558594,
+                        -257.83990478515625
+                    ],
+                    "rot": [
+                        0.9238795042037964,
+                        0.0,
+                        0.3826834559440613,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "5231B8C8-60FB-4C05-A70D-B65B67782CEE",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    210.674072265625,
+                                    62.26731872558594,
+                                    -257.83990478515625
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring2:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        210.674072265625,
+                        72.79723358154297,
+                        -257.83990478515625
+                    ],
+                    "rot": [
+                        0.9238795042037964,
+                        0.0,
+                        0.3826834559440613,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    210.674072265625,
+                                    72.79723358154297,
+                                    -257.83990478515625
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring3",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        68.88294982910156,
+                        41.618011474609375,
+                        -236.5166778564453
+                    ],
+                    "rot": [
+                        0.623410701751709,
+                        0.0,
+                        0.7818945646286011,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "40AF04F6-790C-4070-BB8B-7A3B82E6FDF5",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    68.88294982910156,
+                                    41.618011474609375,
+                                    -236.5166778564453
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring3:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        68.88294982910156,
+                        52.147926330566406,
+                        -236.5166778564453
+                    ],
+                    "rot": [
+                        0.623410701751709,
+                        0.0,
+                        0.7818945646286011,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    68.88294982910156,
+                                    52.147926330566406,
+                                    -236.5166778564453
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring4",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        -6.815929889678955,
+                        74.6472396850586,
+                        -101.47732543945313
+                    ],
+                    "rot": [
+                        0.782142698764801,
+                        0.0,
+                        0.6230993270874023,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "6891B54C-73BC-4204-98FC-9C7ED4F2B790",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    -6.815929889678955,
+                                    74.6472396850586,
+                                    -101.47732543945313
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring4:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        -6.815929889678955,
+                        86.22377014160156,
+                        -101.47732543945313
+                    ],
+                    "rot": [
+                        0.782142698764801,
+                        0.0,
+                        0.6230993270874023,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    -6.815929889678955,
+                                    86.22377014160156,
+                                    -101.47732543945313
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring5",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        137.1162109375,
+                        55.89202117919922,
+                        -107.4021224975586
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "436C8B17-2DA5-4964-9801-3B4DA66E4400",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    137.1162109375,
+                                    55.89202117919922,
+                                    -107.4021224975586
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring5:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        137.1162109375,
+                        67.46855163574219,
+                        -107.4021224975586
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    137.1162109375,
+                                    67.46855163574219,
+                                    -107.4021224975586
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring6",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        259.131103515625,
+                        32.07525634765625,
+                        -105.6203842163086
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "6357B2C1-86C3-47C8-95E7-3A67C4CDD26F",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    259.131103515625,
+                                    32.07525634765625,
+                                    -105.6203842163086
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring6:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        259.131103515625,
+                        43.65178680419922,
+                        -105.6203842163086
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    259.131103515625,
+                                    43.65178680419922,
+                                    -105.6203842163086
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring7",
+                    "type": "Common/QuickMesh",
+                    "pos": [
+                        339.1553039550781,
+                        50.69305419921875,
+                        -105.98383331298828
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "mesh": {
+                            "mOverrideMaterialResource": {
+                                "value": "game/materials/blockout/blockout_blue.binmaterial",
+                                "type": 13
+                            }
+                        },
+                        "quickMeshResource": {
+                            "mFileGuid": {
+                                "value": "557743B2-C28E-47AE-87C3-76ED8D6011EB",
+                                "type": 12
+                            },
+                            "mIncludeSurroundings": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mPhysicsMaterialName": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mPhysicsType": {
+                                "value": 1,
+                                "type": 8
+                            },
+                            "mShowAdvancedProperties": {
+                                "value": false,
+                                "type": 11
+                            },
+                            "mSurroundingsRadius": {
+                                "value": 150.0,
+                                "type": 1
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    339.1553039550781,
+                                    50.69305419921875,
+                                    -105.98383331298828
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:Ring7:Trigger",
+                    "type": "Common/Trigger",
+                    "pos": [
+                        339.1553039550781,
+                        62.26958465576172,
+                        -105.98383331298828
+                    ],
+                    "rot": [
+                        0.7019254565238953,
+                        -5.551115123125783e-17,
+                        0.7122503519058228,
+                        1.7838512889056801e-9
+                    ],
+                    "exposedPropertyValues": {
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    339.1553039550781,
+                                    62.26958465576172,
+                                    -105.98383331298828
+                                ],
+                                "type": 15
+                            }
+                        },
+                        "trigger": {
+                            "mHeight": {
+                                "value": 2.0,
+                                "type": 1
+                            },
+                            "mOneEventPerGameObject": {
+                                "value": true,
+                                "type": 11
+                            },
+                            "mRadius": {
+                                "value": 7.0,
+                                "type": 1
+                            },
+                            "mScriptCode": {
+                                "value": [
+                                    "void onObjectEntered(const gameobject &in object)",
+                                    "{",
+                                    "    if (self.isSPAvatar(object))",
+                                    "    {",
+                                    "        self.sendMessage(LevelObjects::Rings::CheckpointSound, \"play\");",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "type": 24
+                            },
+                            "mShape": {
+                                "value": 0,
+                                "type": 8
+                            },
+                            "mSize": {
+                                "value": [
+                                    11.0,
+                                    11.0,
+                                    1.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rings:CheckpointSound",
+                    "type": "Audio/ScriptedTimbreEvent",
+                    "pos": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "rot": [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "exposedPropertyValues": {
+                        "event": {
+                            "eventPath": {
+                                "value": "event:/[flyingscout]/Sounds/Checkpoint",
+                                "type": 12
+                            }
+                        },
+                        "eventScript": {
+                            "scriptCode": {
+                                "value": [
+                                    "void onMessage(const gameobject &in sender, const string &in message, const messageparameters &in params)",
+                                    "{",
+                                    "    if (message == \"play\")",
+                                    "    {",
+                                    "        self.playEvent();",
+                                    "    }",
+                                    "}",
+                                    ""
+                                ],
+                                "type": 24
+                            }
+                        },
+                        "transform": {
+                            "mEditorPosition": {
+                                "value": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "type": 15
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "objectHierarchy": [
+        {
+            "parent": "Rings:Ring1",
+            "child": "Rings:Ring1:Trigger"
+        },
+        {
+            "parent": "Rings:Ring2",
+            "child": "Rings:Ring2:Trigger"
+        },
+        {
+            "parent": "Rings:Ring3",
+            "child": "Rings:Ring3:Trigger"
+        },
+        {
+            "parent": "Rings:Ring4",
+            "child": "Rings:Ring4:Trigger"
+        },
+        {
+            "parent": "Rings:Ring5",
+            "child": "Rings:Ring5:Trigger"
+        },
+        {
+            "parent": "Rings:Ring6",
+            "child": "Rings:Ring6:Trigger"
+        },
+        {
+            "parent": "Rings:Ring7",
+            "child": "Rings:Ring7:Trigger"
+        }
+    ]
+}

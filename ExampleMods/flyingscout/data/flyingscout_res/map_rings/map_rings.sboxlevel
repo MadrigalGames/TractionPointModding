@@ -1,0 +1,6 @@
+{
+	"name": "Scout's night out!",
+	"description": "Someone gave the Scout a jet pack! And then built a course for it to practice flying on.",
+	"thumbnail": "flyingscout_res/sbox_thumbnail.tex",
+	"binLevelPath": "flyingscout_res/map_rings/map_rings.binlevel"
+}

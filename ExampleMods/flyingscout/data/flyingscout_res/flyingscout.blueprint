@@ -1,0 +1,122 @@
+{
+	"Vehicles/FlyingScout": {
+		"base": "Vehicles/Scout",
+		"components": [
+				{
+	            "name": "transform",
+	            "type": "Basis::DynamicBodyTransformComponent",
+	            "createOn": ["client", "server", "leveleditor", "assetbrowser"],
+	            "ovrPrev": true,
+	            "expandedInEditor": true,
+	            "properties": {
+	                "shapes": [
+	                    {
+	                        "type": "ConvexHull",
+	                        "points": [
+	                            [0.619, -0.693, 2.462],
+	                            [0.543, 0.042, 2.373],
+	                            [0.631, -0.693, -2.631],
+	                            [0.64, 0.272, -2.57],
+	                            [-0.619, -0.693, 2.462],
+	                            [-0.543, 0.042, 2.373],
+	                            [-0.631, -0.693, -2.631],
+	                            [-0.64, 0.272, -2.57],
+	                            [1.112, -0.693, 0.892],
+	                            [1.075, 0.319, 0.876],
+	                            [-1.112, -0.693, 0.892],
+	                            [-1.075, 0.319, 0.876],
+	                            [1.104, 0.65, -1.472],
+	                            [-1.102, -0.693, -1.509],
+	                            [1.102, -0.693, -1.509],
+	                            [-1.104, 0.65, -1.472],
+	                            [-0.661, -0.334, 2.462],
+	                            [-0.902, -0.21, -2.6],
+	                            [0.902, -0.21, -2.6],
+	                            [0.661, -0.334, 2.462],
+	                            [-1.276, -0.187, 0.884],
+	                            [1.276, -0.187, 0.884],
+	                            [-1.402, -0.013, -1.509],
+	                            [1.402, -0.013, -1.509]
+	                        ],
+	                        "material": "VehicleChassis"
+	                    },
+	                    {
+	                        "type": "CylinderX",
+	                        "radius": 0.6,
+	                        "height": 0.5,
+	                        "material": "VehicleWheel"
+	                    },
+	                    {
+	                        "type": "CylinderX",
+	                        "radius": 0.6,
+	                        "height": 0.5,
+	                        "material": "VehicleWheel"
+	                    },
+	                    {
+	                        "type": "CylinderX",
+	                        "radius": 0.6,
+	                        "height": 0.5,
+	                        "material": "VehicleWheel"
+	                    },
+	                    {
+	                        "type": "CylinderX",
+	                        "radius": 0.6,
+	                        "height": 0.5,
+	                        "material": "VehicleWheel"
+	                    },
+	                    {
+	                        "type": "ConvexHull",
+	                        "points": [
+	                            [0.468, 0.007, 2.362],
+	                            [0.397, 0.14, 2.362],
+	                            [1.0, 0.248, -1.32],
+	                            [0.515, 1.13, -1.32],
+	                            [-0.468, 0.007, 2.362],
+	                            [-0.397, 0.14, 2.362],
+	                            [-1.0, 0.248, -1.32],
+	                            [-0.515, 1.13, -1.32],
+	                            [0.793, 0.421, -2.008],
+	                            [-0.793, 0.421, -2.008],
+	                            [0.91, 0.121, 0.286],
+	                            [0.468, 1.129, 0.286],
+	                            [-0.91, 0.121, 0.286],
+	                            [-0.468, 1.129, 0.286]
+	                        ],
+	                        "material": "VehicleChassis"
+	                    },
+	                    {
+	                        "type": "Box",
+	                        "size": [4.5, 0.8, 1.0],
+	                        "position": [0.0, 1.0, -0.3]
+	                    }
+	                ],
+	                "mass": 1.0,
+	                "allowSleeping": false,
+	                "syncSleepStateOverNetwork": false
+	            }
+	        },
+			{
+				"name": "scoutJetPack",
+				"type": "flyingscout.ScoutJetPackComponent",
+				"createOn": ["client", "server", "leveleditor", "assetbrowser"],
+				"properties": {}
+			},
+			{
+				"name": "jetpackMesh",
+				"type": "Basis::MeshComponent",
+				"createOn": ["client", "leveleditor", "assetbrowser"],
+				"properties": {
+					"meshComponentType": "DeterminedByTransform",
+					"mesh": "flyingscout_res/scout_jetpack.binmesh",
+					"materials": [
+						"flyingscout_res/scout_jetpack.binmaterial"
+					],
+					"meshPosition": [0.0, 0.0, 0.0],
+					"blocksNavMesh": false,
+					"addToBVH": "Auto",
+					"giType": "Auto"
+				}
+			}
+		]
+	}
+}

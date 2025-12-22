@@ -1,0 +1,441 @@
+{
+  "FileVersion": 1,
+  "OnlyExplicitExports": true,
+  "Material": {
+    "VertexFormatType": "PositionTangentBinormalNormalTexcoord",
+    "RenderPasses": [
+      {
+        "State": "NodeGraph",
+        "ID": "Opaque",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        },
+        "ShaderGraphs": [
+          {
+            "ShaderType": "Vertex",
+            "ShaderGraph": {
+              "NodeIDAccumulator": 3,
+              "Nodes": [
+                {
+                  "ID": 0,
+                  "NodeTypeName": "BasisMaterialLib.VSInputNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.VSInputNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 109,
+                  "Top": 193,
+                  "Width": 134,
+                  "Height": 120,
+                  "Comment": ""
+                },
+                {
+                  "ID": 1,
+                  "NodeTypeName": "BasisMaterialLib.VSOutputNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.VSOutputNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 534,
+                  "Top": 133,
+                  "Width": 142,
+                  "Height": 180,
+                  "Comment": ""
+                },
+                {
+                  "ID": 2,
+                  "NodeTypeName": "BasisMaterialLib.TransformVertexNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.TransformVertexNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 321,
+                  "Top": 93,
+                  "Width": 140,
+                  "Height": 145,
+                  "Transform": 0,
+                  "Comment": ""
+                }
+              ],
+              "Connections": [
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Position",
+                  "ToNodeID": 2,
+                  "ToPinName": "Position"
+                },
+                {
+                  "FromNodeID": 2,
+                  "FromPinName": "Position",
+                  "ToNodeID": 1,
+                  "ToPinName": "Position"
+                },
+                {
+                  "FromNodeID": 2,
+                  "FromPinName": "Normal",
+                  "ToNodeID": 1,
+                  "ToPinName": "Normal"
+                },
+                {
+                  "FromNodeID": 2,
+                  "FromPinName": "Tangent",
+                  "ToNodeID": 1,
+                  "ToPinName": "Tangent"
+                },
+                {
+                  "FromNodeID": 2,
+                  "FromPinName": "Binormal",
+                  "ToNodeID": 1,
+                  "ToPinName": "Binormal"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "UV0",
+                  "ToNodeID": 1,
+                  "ToPinName": "UV0"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Binormal",
+                  "ToNodeID": 2,
+                  "ToPinName": "Binormal"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Tangent",
+                  "ToNodeID": 2,
+                  "ToPinName": "Tangent"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Normal",
+                  "ToNodeID": 2,
+                  "ToPinName": "Normal"
+                }
+              ]
+            }
+          },
+          {
+            "ShaderType": "Pixel",
+            "ShaderGraph": {
+              "NodeIDAccumulator": 12,
+              "Nodes": [
+                {
+                  "ID": 0,
+                  "NodeTypeName": "BasisMaterialLib.PSInputNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.PSInputNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 32,
+                  "Top": 32,
+                  "Width": 126,
+                  "Height": 180,
+                  "Comment": ""
+                },
+                {
+                  "ID": 1,
+                  "NodeTypeName": "BasisMaterialLib.PSOutputNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.PSOutputNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 778,
+                  "Top": 32,
+                  "Width": 140,
+                  "Height": 65,
+                  "Comment": ""
+                },
+                {
+                  "ID": 2,
+                  "NodeTypeName": "BasisMaterialLib.SceneLightingNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.SceneLightingNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 564,
+                  "Top": 32,
+                  "Width": 140,
+                  "Height": 225,
+                  "ReceivesShadows": true,
+                  "Fog": true,
+                  "GI": "LightProbe",
+                  "SpecularPower": 2.0,
+                  "Comment": ""
+                },
+                {
+                  "ID": 3,
+                  "NodeTypeName": "BasisMaterialLib.SampleTextureNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.SampleTextureNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 313,
+                  "Top": 197,
+                  "Width": 160,
+                  "Height": 105,
+                  "Sampler": "LinearWrap",
+                  "Comment": ""
+                },
+                {
+                  "ID": 4,
+                  "NodeTypeName": "BasisMaterialLib.TextureParameterNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.TextureParameterNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 32,
+                  "Top": 270,
+                  "Width": 160,
+                  "Height": 65,
+                  "ParameterName": "DiffuseTexture",
+                  "Comment": ""
+                },
+                {
+                  "ID": 5,
+                  "NodeTypeName": "BasisMaterialLib.FloatParameterNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.FloatParameterNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 32,
+                  "Top": 368,
+                  "Width": 160,
+                  "Height": 65,
+                  "ParameterName": "SpecularPower",
+                  "Comment": ""
+                },
+                {
+                  "ID": 6,
+                  "NodeTypeName": "BasisMaterialLib.ColorVectorParameterNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.ColorVectorParameterNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 313,
+                  "Top": 368,
+                  "Width": 160,
+                  "Height": 65,
+                  "ParameterName": "DiffuseColor",
+                  "Comment": ""
+                },
+                {
+                  "ID": 7,
+                  "NodeTypeName": "BasisMaterialLib.ColorVectorParameterNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.ColorVectorParameterNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 313,
+                  "Top": 448,
+                  "Width": 160,
+                  "Height": 65,
+                  "ParameterName": "AmbientColor",
+                  "Comment": ""
+                },
+                {
+                  "ID": 9,
+                  "NodeTypeName": "BasisMaterialLib.ColorVectorParameterNode",
+                  "AssemblyQualifiedName": "BasisMaterialLib.ColorVectorParameterNode, BasisMaterialLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Left": 313,
+                  "Top": 528,
+                  "Width": 160,
+                  "Height": 65,
+                  "ParameterName": "SpecularColor",
+                  "Comment": ""
+                }
+              ],
+              "Connections": [
+                {
+                  "FromNodeID": 2,
+                  "FromPinName": "Output",
+                  "ToNodeID": 1,
+                  "ToPinName": "Color"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Position",
+                  "ToNodeID": 2,
+                  "ToPinName": "Position"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "Normal",
+                  "ToNodeID": 2,
+                  "ToPinName": "Normal"
+                },
+                {
+                  "FromNodeID": 4,
+                  "FromPinName": "Output",
+                  "ToNodeID": 3,
+                  "ToPinName": "Texture"
+                },
+                {
+                  "FromNodeID": 0,
+                  "FromPinName": "UV0",
+                  "ToNodeID": 3,
+                  "ToPinName": "UV"
+                },
+                {
+                  "FromNodeID": 3,
+                  "FromPinName": "Output",
+                  "ToNodeID": 2,
+                  "ToPinName": "Diffuse texture color"
+                },
+                {
+                  "FromNodeID": 5,
+                  "FromPinName": "Output",
+                  "ToNodeID": 2,
+                  "ToPinName": "Specular power"
+                },
+                {
+                  "FromNodeID": 6,
+                  "FromPinName": "Output",
+                  "ToNodeID": 2,
+                  "ToPinName": "Diffuse color"
+                },
+                {
+                  "FromNodeID": 7,
+                  "FromPinName": "Output",
+                  "ToNodeID": 2,
+                  "ToPinName": "Ambient color"
+                },
+                {
+                  "FromNodeID": 9,
+                  "FromPinName": "Output",
+                  "ToNodeID": 2,
+                  "ToPinName": "Specular color"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "State": "Disabled",
+        "ID": "Transparent",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      },
+      {
+        "State": "Disabled",
+        "ID": "DistantObjects",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      },
+      {
+        "State": "Default",
+        "ID": "ShadowMap",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 20000,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 3.0,
+          "DepthClipEnabled": false,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      },
+      {
+        "State": "Default",
+        "ID": "SSAONormalDepth",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      },
+      {
+        "State": "Default",
+        "ID": "HBAODepth",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      },
+      {
+        "State": "Disabled",
+        "ID": "EditorGizmos",
+        "PipelineState": {
+          "PrimitiveTopology": "PrimitiveTopologyTriangleList",
+          "DepthTestEnabled": true,
+          "DepthWriteEnabled": true,
+          "DepthFunction": "ComparisonFuncLess",
+          "FillMode": "FillModeSolid",
+          "CullMode": "CullModeBack",
+          "FrontCounterClockWise": false,
+          "DepthBias": 0,
+          "DepthBiasClamp": 0.0,
+          "SlopeScaledDepthBias": 0.0,
+          "DepthClipEnabled": true,
+          "ScissorTestEnabled": false,
+          "Blending": 0
+        }
+      }
+    ],
+    "Parameters": [
+      {
+        "Name": "DiffuseTexture",
+        "Type": "Texture",
+        "Value": "flyingscout_res/scout_jetpack_diffuse.tex",
+        "Dynamic": false
+      },
+      {
+        "Name": "DiffuseColor",
+        "Type": "Color",
+        "Value": "White",
+        "Dynamic": false
+      },
+      {
+        "Name": "AmbientColor",
+        "Type": "Color",
+        "Value": "187, 187, 187",
+        "Dynamic": false
+      },
+      {
+        "Name": "SpecularColor",
+        "Type": "Color",
+        "Value": "2, 2, 2",
+        "Dynamic": false
+      },
+      {
+        "Name": "SpecularPower",
+        "Type": "Float",
+        "Value": 2.0,
+        "Dynamic": false
+      }
+    ]
+  }
+}

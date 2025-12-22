@@ -1,0 +1,9 @@
+{
+	"id": "fpcamera",
+	"name": "First-person Camera",
+	"author": "Madrigal Ltd.",
+	"version": "1.0",
+	"url": "https://www.madrigalgames.com",
+	"description": "This mod adds a first-person camera to certain vehicles.",
+	"env_version": 1
+}

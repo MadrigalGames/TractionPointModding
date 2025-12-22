@@ -1,0 +1,570 @@
+{
+  "FileVersion": 1,
+  "OverriddenBuildOutputFolderPath": "..\\..\\",
+  "ReaperExeFilePath": "",
+  "AssetFoldersToHide": [],
+  "AdditiveProjectMainTimbreFilePath": "D:\\Projects\\basis_data\\meansdata\\workFolderRoot\\audio\\means.timbre",
+  "Project": {
+    "IsAdditiveProject": true,
+    "AdditiveProjectID": "flyingscout",
+    "Folders": [
+      {
+        "Guid": "488659c0-2056-4e33-b6b7-48ac96d97342",
+        "Name": "Sounds"
+      }
+    ],
+    "Events": [
+      {
+        "Guid": "5613d7e2-1585-4fd8-bdf7-5f115247a4de",
+        "EventType": 0,
+        "Name": "Thruster",
+        "Graph": {
+          "NodeIDAccumulator": 22,
+          "Nodes": [
+            {
+              "ID": 1,
+              "NodeTypeName": "Timbre.Nodes.Event.OnStartNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Event.OnStartNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 94,
+              "Top": 51,
+              "Width": 72,
+              "Height": 40,
+              "Comment": ""
+            },
+            {
+              "ID": 2,
+              "NodeTypeName": "Timbre.Nodes.Audio.PlayAudioNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.PlayAudioNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 977,
+              "Top": 51,
+              "Width": 140,
+              "Height": 175,
+              "Looping": true,
+              "Volume": 1.0,
+              "PlaybackSpeed": 1.0,
+              "Muted": false,
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            },
+            {
+              "ID": 3,
+              "NodeTypeName": "Timbre.Nodes.Event.FloatParameterNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Event.FloatParameterNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 94,
+              "Top": 368,
+              "Width": 160,
+              "Height": 52,
+              "ParameterName": "Thrust",
+              "Comment": ""
+            },
+            {
+              "ID": 4,
+              "NodeTypeName": "Timbre.Nodes.Math.CurveNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Math.CurveNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 797,
+              "Top": 141,
+              "Width": 130,
+              "Height": 125,
+              "CurveData": {
+                "postLoop": 0,
+                "preLoop": 0,
+                "keys": [
+                  {
+                    "continuity": 0,
+                    "x": 0.0,
+                    "tangentIn": 0.0,
+                    "tangentOut": 0.6,
+                    "y": 0.4
+                  },
+                  {
+                    "continuity": 0,
+                    "x": 1.0,
+                    "tangentIn": 0.6,
+                    "tangentOut": 0.0,
+                    "y": 1.0
+                  }
+                ]
+              },
+              "Comment": ""
+            },
+            {
+              "ID": 5,
+              "NodeTypeName": "Timbre.Nodes.Audio.WaveAssetNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.WaveAssetNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 600,
+              "Top": 91,
+              "Width": 180,
+              "Height": 112,
+              "AssetGuid": "1da875f8-73f8-4eb1-980d-4add6f0dd46c",
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            },
+            {
+              "ID": 6,
+              "NodeTypeName": "Timbre.Nodes.Audio.NoiseNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.NoiseNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 529,
+              "Top": 1008,
+              "Width": 140,
+              "Height": 92,
+              "Type": 2,
+              "AdvancedSettingsVisible": true,
+              "Comment": ""
+            },
+            {
+              "ID": 7,
+              "NodeTypeName": "Timbre.Nodes.Audio.PlayAudioNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.PlayAudioNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 784,
+              "Top": 944,
+              "Width": 140,
+              "Height": 175,
+              "Looping": true,
+              "Volume": 1.0,
+              "PlaybackSpeed": 1.0,
+              "Muted": false,
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            },
+            {
+              "ID": 8,
+              "NodeTypeName": "Timbre.Nodes.Audio.BiquadResonantFilterNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.BiquadResonantFilterNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 349,
+              "Top": 1008,
+              "Width": 140,
+              "Height": 125,
+              "Type": 0,
+              "Wet": 1.0,
+              "Frequency": 500.0,
+              "Resonance": 2.0,
+              "Comment": ""
+            },
+            {
+              "ID": 9,
+              "NodeTypeName": "Sprinter.Nodes.Math.RemapFloatNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.Math.RemapFloatNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 174,
+              "Top": 989,
+              "Width": 140,
+              "Height": 165,
+              "Clamp": true,
+              "Parameter": 0.5,
+              "OldMin": 0.0,
+              "OldMax": 1.0,
+              "NewMin": 300.0,
+              "NewMax": 600.0,
+              "Comment": ""
+            },
+            {
+              "ID": 10,
+              "NodeTypeName": "Timbre.Nodes.Audio.WaveShaperFilterNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.WaveShaperFilterNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 359,
+              "Top": 1192,
+              "Width": 120,
+              "Height": 85,
+              "Wet": 1.0,
+              "Amount": 0.0,
+              "Comment": ""
+            },
+            {
+              "ID": 11,
+              "NodeTypeName": "Sprinter.Nodes.Math.RemapFloatNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.Math.RemapFloatNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 174,
+              "Top": 1195,
+              "Width": 140,
+              "Height": 165,
+              "Clamp": true,
+              "Parameter": 0.5,
+              "OldMin": 0.7,
+              "OldMax": 1.0,
+              "NewMin": 0.0,
+              "NewMax": 0.7,
+              "Comment": ""
+            },
+            {
+              "ID": 12,
+              "NodeTypeName": "Timbre.Nodes.Math.CurveNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Math.CurveNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 440,
+              "Top": 842,
+              "Width": 130,
+              "Height": 125,
+              "CurveData": {
+                "postLoop": 0,
+                "preLoop": 0,
+                "keys": [
+                  {
+                    "continuity": 0,
+                    "x": 0.0,
+                    "tangentIn": 0.0,
+                    "tangentOut": 2.68076062,
+                    "y": 0.1
+                  },
+                  {
+                    "continuity": 0,
+                    "x": 1.0,
+                    "tangentIn": 0.197827175,
+                    "tangentOut": 0.0,
+                    "y": 1.0
+                  }
+                ]
+              },
+              "Comment": ""
+            },
+            {
+              "ID": 13,
+              "NodeTypeName": "Sprinter.Nodes.General.AnnotationNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.General.AnnotationNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 569,
+              "Top": 20,
+              "Width": 28,
+              "Height": 40,
+              "TitleText": "Turbine whine",
+              "DetailsText": "",
+              "Comment": ""
+            },
+            {
+              "ID": 14,
+              "NodeTypeName": "Sprinter.Nodes.General.AnnotationNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.General.AnnotationNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 174,
+              "Top": 904,
+              "Width": 28,
+              "Height": 40,
+              "TitleText": "Low rumble",
+              "DetailsText": "",
+              "Comment": ""
+            },
+            {
+              "ID": 15,
+              "NodeTypeName": "Timbre.Nodes.Audio.NoiseNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.NoiseNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 784,
+              "Top": 502,
+              "Width": 140,
+              "Height": 92,
+              "Type": 1,
+              "AdvancedSettingsVisible": true,
+              "Comment": ""
+            },
+            {
+              "ID": 16,
+              "NodeTypeName": "Timbre.Nodes.Audio.PlayAudioNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.PlayAudioNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 977,
+              "Top": 446,
+              "Width": 140,
+              "Height": 175,
+              "Looping": true,
+              "Volume": 1.0,
+              "PlaybackSpeed": 1.0,
+              "Muted": false,
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            },
+            {
+              "ID": 17,
+              "NodeTypeName": "Timbre.Nodes.Audio.BiquadResonantFilterNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.BiquadResonantFilterNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 610,
+              "Top": 567,
+              "Width": 140,
+              "Height": 125,
+              "Type": 2,
+              "Wet": 1.0,
+              "Frequency": 500.0,
+              "Resonance": 2.0,
+              "Comment": ""
+            },
+            {
+              "ID": 18,
+              "NodeTypeName": "Sprinter.Nodes.Math.RemapFloatNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.Math.RemapFloatNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 610,
+              "Top": 380,
+              "Width": 140,
+              "Height": 165,
+              "Clamp": true,
+              "Parameter": 0.5,
+              "OldMin": 0.25,
+              "OldMax": 1.0,
+              "NewMin": 0.0,
+              "NewMax": 1.5,
+              "Comment": ""
+            },
+            {
+              "ID": 19,
+              "NodeTypeName": "Sprinter.Nodes.Math.RemapFloatNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.Math.RemapFloatNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 396,
+              "Top": 485,
+              "Width": 140,
+              "Height": 165,
+              "Clamp": true,
+              "Parameter": 0.5,
+              "OldMin": 0.25,
+              "OldMax": 1.0,
+              "NewMin": 300.0,
+              "NewMax": 1700.0,
+              "Comment": ""
+            },
+            {
+              "ID": 21,
+              "NodeTypeName": "Sprinter.Nodes.General.AnnotationNode",
+              "AssemblyQualifiedName": "Sprinter.Nodes.General.AnnotationNode, Sprinter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 811,
+              "Top": 374,
+              "Width": 28,
+              "Height": 40,
+              "TitleText": "Mid noise",
+              "DetailsText": "",
+              "Comment": ""
+            }
+          ],
+          "Connections": [
+            {
+              "FromNodeID": 1,
+              "FromPinName": "(Out)",
+              "ToNodeID": 2,
+              "ToPinName": "Play"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 4,
+              "ToPinName": "In (X)"
+            },
+            {
+              "FromNodeID": 4,
+              "FromPinName": "Out (Y)",
+              "ToNodeID": 2,
+              "ToPinName": "Playback Speed"
+            },
+            {
+              "FromNodeID": 5,
+              "FromPinName": "(Out)",
+              "ToNodeID": 2,
+              "ToPinName": "Audio Source"
+            },
+            {
+              "FromNodeID": 6,
+              "FromPinName": "(Out)",
+              "ToNodeID": 7,
+              "ToPinName": "Audio Source"
+            },
+            {
+              "FromNodeID": 1,
+              "FromPinName": "(Out)",
+              "ToNodeID": 7,
+              "ToPinName": "Play"
+            },
+            {
+              "FromNodeID": 8,
+              "FromPinName": "(Filter)",
+              "ToNodeID": 6,
+              "ToPinName": "Filter 0"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 9,
+              "ToPinName": "Parameter"
+            },
+            {
+              "FromNodeID": 9,
+              "FromPinName": "Result",
+              "ToNodeID": 8,
+              "ToPinName": "Frequency"
+            },
+            {
+              "FromNodeID": 10,
+              "FromPinName": "(Filter)",
+              "ToNodeID": 6,
+              "ToPinName": "Filter 3"
+            },
+            {
+              "FromNodeID": 11,
+              "FromPinName": "Result",
+              "ToNodeID": 10,
+              "ToPinName": "Amount"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 11,
+              "ToPinName": "Parameter"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 12,
+              "ToPinName": "In (X)"
+            },
+            {
+              "FromNodeID": 12,
+              "FromPinName": "Out (Y)",
+              "ToNodeID": 7,
+              "ToPinName": "Volume"
+            },
+            {
+              "FromNodeID": 1,
+              "FromPinName": "(Out)",
+              "ToNodeID": 16,
+              "ToPinName": "Play"
+            },
+            {
+              "FromNodeID": 15,
+              "FromPinName": "(Out)",
+              "ToNodeID": 16,
+              "ToPinName": "Audio Source"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 18,
+              "ToPinName": "Parameter"
+            },
+            {
+              "FromNodeID": 3,
+              "FromPinName": "(Out)",
+              "ToNodeID": 19,
+              "ToPinName": "Parameter"
+            },
+            {
+              "FromNodeID": 17,
+              "FromPinName": "(Filter)",
+              "ToNodeID": 15,
+              "ToPinName": "Filter 0"
+            },
+            {
+              "FromNodeID": 19,
+              "FromPinName": "Result",
+              "ToNodeID": 17,
+              "ToPinName": "Frequency"
+            },
+            {
+              "FromNodeID": 18,
+              "FromPinName": "Result",
+              "ToNodeID": 16,
+              "ToPinName": "Volume"
+            }
+          ]
+        },
+        "Parameters": [
+          {
+            "Name": "Thrust",
+            "Type": "Float",
+            "InitialValue": 0.0,
+            "MinValue": 0.0,
+            "MaxValue": 1.0,
+            "SeekSpeedAsc": 1.3,
+            "SeekSpeedDesc": 0.5
+          }
+        ],
+        "Is3D": true,
+        "Attenuation": 2,
+        "AttenuationRolloff": 1.0,
+        "MinDistance": 3.0,
+        "MaxDistance": 50.0,
+        "DopplerFactor": 1.0,
+        "Length": -1.0,
+        "GroupBusGuid": "d6c4be3a-145b-489d-8954-2b282c8a1428",
+        "VolumeMultiplier": 0.6,
+        "PreloadResources": false
+      },
+      {
+        "Guid": "629233e1-be52-4412-980b-d65fbe8211ff",
+        "EventType": 0,
+        "Name": "Checkpoint",
+        "Graph": {
+          "NodeIDAccumulator": 3,
+          "Nodes": [
+            {
+              "ID": 0,
+              "NodeTypeName": "Timbre.Nodes.Audio.WaveAssetNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.WaveAssetNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 242,
+              "Top": 188,
+              "Width": 180,
+              "Height": 112,
+              "AssetGuid": "09ffb81f-3418-406b-9919-1bd04c934ecf",
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            },
+            {
+              "ID": 1,
+              "NodeTypeName": "Timbre.Nodes.Event.OnStartNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Event.OnStartNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 49,
+              "Top": 103,
+              "Width": 72,
+              "Height": 40,
+              "Comment": ""
+            },
+            {
+              "ID": 2,
+              "NodeTypeName": "Timbre.Nodes.Audio.PlayAudioNode",
+              "AssemblyQualifiedName": "Timbre.Nodes.Audio.PlayAudioNode, Timbre, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "Left": 549,
+              "Top": 69,
+              "Width": 140,
+              "Height": 175,
+              "Looping": false,
+              "Volume": 0.6,
+              "PlaybackSpeed": 1.0,
+              "Muted": false,
+              "AdvancedSettingsVisible": false,
+              "Comment": ""
+            }
+          ],
+          "Connections": [
+            {
+              "FromNodeID": 1,
+              "FromPinName": "(Out)",
+              "ToNodeID": 2,
+              "ToPinName": "Play"
+            },
+            {
+              "FromNodeID": 0,
+              "FromPinName": "(Out)",
+              "ToNodeID": 2,
+              "ToPinName": "Audio Source"
+            }
+          ]
+        },
+        "Parameters": [],
+        "Is3D": false,
+        "Attenuation": 2,
+        "AttenuationRolloff": 1.0,
+        "MinDistance": 3.0,
+        "MaxDistance": 50.0,
+        "DopplerFactor": 1.0,
+        "Length": -1.0,
+        "GroupBusGuid": "5e87aae9-1ada-4826-94f0-76ebc120c046",
+        "VolumeMultiplier": 1.0,
+        "PreloadResources": false
+      }
+    ],
+    "GroupBuses": [],
+    "CompositeNodes": [],
+    "Hierarchy": [
+      {
+        "Type": 0,
+        "Guid": "488659c0-2056-4e33-b6b7-48ac96d97342",
+        "Children": [
+          {
+            "Type": 1,
+            "Guid": "5613d7e2-1585-4fd8-bdf7-5f115247a4de"
+          },
+          {
+            "Type": 1,
+            "Guid": "629233e1-be52-4412-980b-d65fbe8211ff"
+          }
+        ]
+      }
+    ]
+  }
+}
