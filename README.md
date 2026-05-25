@@ -14,4 +14,4 @@ Please see the [wiki](https://github.com/MadrigalGames/TractionPointModding/wiki
 
 The source code in this repository is licensed under the The 3-Clause BSD License.
 
-To make mods for Traction Point you will need to use the [Basis modding SDK](https://github.com/MadrigalGames/BasisModdingSDK) (for building the code) and the [Basis Toolbox](https://www.madrigalgames.com/packages/basis_toolbox.exe) (for building the data). Both of these packages are released under a non-commercial license.
+To make mods for Traction Point you will need to use the [Basis modding SDK](https://github.com/MadrigalGames/BasisModdingSDK) (for building the code) and the [Basis Toolbox](https://www.madrigalgames.com/packages/BasisToolbox_2025_11_0.exe) (for building the data). Both of these packages are released under a non-commercial license.
