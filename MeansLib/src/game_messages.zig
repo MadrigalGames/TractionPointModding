@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -68,6 +68,11 @@ pub const GameMessage = enum(i32) {
     ShowRadioMarker,
     HideRadioMarker,
     UpdateHUDInputPrompts,
+    ConversationShowVoiceLine,
+    ConversationShowTGLine,
+    ConversationShowChoices,
+    ConversationHide,
+    ConversationChoiceInput,
 
     // Player control messages (category: PlayerControl). These are sent by the client
     // and server player controllers to have the player GOs react to input etc. On the server these
@@ -89,6 +94,9 @@ pub const GameMessage = enum(i32) {
     BlendCameraAnimationToVehicle,
     PlayFullscreenAnimation,
     StopFullscreenAnimation,
+    EnterConversationCamera,
+    ExitConversationCamera,
+    ConversationChoiceSelected,
 
     // Means-specific game flow messages (category: MeansGameFlow)
     EndGameAndTravel,
@@ -131,6 +139,11 @@ pub fn register(context: *AppContext) void {
     context.registerMessage(GameMessage.ShowRadioMarker, GameMessageCategory.HUD);
     context.registerMessage(GameMessage.HideRadioMarker, GameMessageCategory.HUD);
     context.registerMessage(GameMessage.UpdateHUDInputPrompts, GameMessageCategory.HUD);
+    context.registerMessage(GameMessage.ConversationShowVoiceLine, GameMessageCategory.HUD);
+    context.registerMessage(GameMessage.ConversationShowTGLine, GameMessageCategory.HUD);
+    context.registerMessage(GameMessage.ConversationShowChoices, GameMessageCategory.HUD);
+    context.registerMessage(GameMessage.ConversationHide, GameMessageCategory.HUD);
+    context.registerMessage(GameMessage.ConversationChoiceInput, GameMessageCategory.HUD);
 
     // PlayerControl
     context.registerMessage(GameMessage.PlayerResetVehicle, GameMessageCategory.PlayerControl);
@@ -149,6 +162,9 @@ pub fn register(context: *AppContext) void {
     context.registerMessage(GameMessage.BlendCameraAnimationToVehicle, GameMessageCategory.GameLogic);
     context.registerMessage(GameMessage.PlayFullscreenAnimation, GameMessageCategory.GameLogic);
     context.registerMessage(GameMessage.StopFullscreenAnimation, GameMessageCategory.GameLogic);
+    context.registerMessage(GameMessage.EnterConversationCamera, GameMessageCategory.GameLogic);
+    context.registerMessage(GameMessage.ExitConversationCamera, GameMessageCategory.GameLogic);
+    context.registerMessage(GameMessage.ConversationChoiceSelected, GameMessageCategory.GameLogic);
 
     // MeansGameFlow
     context.registerMessage(GameMessage.EndGameAndTravel, GameMessageCategory.MeansGameFlow);

@@ -1,8 +1,9 @@
 {
+	"id": "flyingscout",
 	"name": "Flying Scout",
 	"author": "Madrigal Ltd.",
 	"version": "1.0",
 	"url": "https://www.madrigalgames.com",
 	"description": "This mod adds a flying scout GameObject type called 'Vehicles/FlyingScout'.",
-	"sdk_version": 1
+	"env_version": 1
 }

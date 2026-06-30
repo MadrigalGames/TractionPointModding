@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -56,11 +56,8 @@ pub fn getGameModeByContext(context: anytype) GameModeType {
 //----------------------------------------------------
 
 pub const MeansVehicleType = enum(u32) {
-    Scout,
-    Gripper,
+    Generic,
     Mother,
-    GripperTruck,
-    Generic, // Any other vehicle.
 };
 
 pub const AvatarRoleType = enum(i32) {
@@ -72,29 +69,40 @@ pub const AvatarRoleType = enum(i32) {
     TruckBed,
 };
 
-pub fn getAvatarRoleDisplayName(role: AvatarRoleType) []const u8 {
-    // TODO: Localize these.
-    return switch (role) {
-        .Inactive => "Inactive",
-        .Driver => "Driver",
-        .CargoCrane => "Cargo Crane",
-        .GravityCrane => "Gravity Crane",
-        .GripperArm => "Gripper Arm",
-        .TruckBed => "Truck Bed",
-    };
-}
-
 //----------------------------------------------------
 
-pub const InteractionAreaState = enum(u32) {
-    Active = 0, // This area is active and can be interacted with.
-    Inactive, // This area is inactive. It can still be seen but cannot be interacted with.CurvePath3D
-    Hidden, // This area is hidden, and completely unusable.
+pub const InteractableState = enum(u32) {
+    Active = 0, // Active and can be interacted with.
+    Inactive, // Visible but cannot be interacted with.
+    Hidden, // Hidden.
 };
 
-pub const InteractionType = enum(u32) {
-    InteractionArea = 0,
-    SwitchVehicle,
+// Identifies which of the two interaction slots an interaction occupies.
+// An Interactable may enable one or both. Primary and Secondary map to
+// the primary/secondary interaction input buttons and the two HUD prompt slots.
+pub const InteractableType = enum(u32) {
+    Primary = 0,
+    Secondary,
+};
+
+// Identifies a code-defined availability rule for an interaction.
+pub const InteractionPredicateID = enum(u32) {
+    None = 0,
+    VehicleSwitchable,
+    ConversationStartable,
+};
+
+// The two stages of an interaction marker. Throughout the interaction code "stage 1" refers
+// to Discovery and "stage 2" to Actionable.
+
+// Discovery (stage 1) shows from far away. It is a marker only, ie. there is no HUD prompt
+// and the interaction cannot be performed at this range yet.
+
+// Actionable (stage 2) shows up close on the single selected target once every interaction
+// condition is met (in range, slow enough, predicate passes).
+pub const MarkerStage = enum(u32) {
+    Discovery = 0, // Stage 1.
+    Actionable, // Stage 2.
 };
 
 //----------------------------------------------------

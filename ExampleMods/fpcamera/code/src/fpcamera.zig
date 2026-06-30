@@ -39,12 +39,14 @@ const trampoline = @import("trampoline");
 
 // Namespaces:
 
+pub const global_data = @import("global_data.zig");
+
 pub const mod_controller = @import("mod_controller.zig");
 
 // Types:
 
 pub const FPCameraModController = mod_controller.FPCameraModController;
 
-// The mod controller pointer.
-
+// The global data & mod controller pointers.
+pub var g: *global_data.LibraryGlobalData = undefined;
 pub var modController: *FPCameraModController = undefined;

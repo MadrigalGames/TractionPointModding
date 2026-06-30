@@ -37,22 +37,61 @@ const nemo = @import("nemo");
 const merlin = @import("merlin");
 const vhl = @import("vhl");
 const ghl = @import("ghl");
-const fuzz = @import("fuzz");
+//const fuzz = @import("fuzz");
 const trampoline = @import("trampoline");
 const meanslib = @import("meanslib");
-const flyingscout = @import("flyingscout.zig");
+
+// Change according to the mod.
+const mod = @import("flyingscout.zig");
+const ModCtrl = mod.FlyingScoutModController;
+
+//----------------------------------------------------
+
+// Allocator:
 
 const UseStdDebugAllocator = false; // Use the Zig std lib DebugAllocator?
 
-var heapAllocator = if (UseStdDebugAllocator)
-    std.heap.DebugAllocator(.{}){}
+const HeapAllocator = if (UseStdDebugAllocator)
+    std.heap.DebugAllocator(.{})
 else
-    basis.memory.HeapAllocator{};
+    basis.memory.HeapAllocator;
 
-const allocator = if (basis.build_options.buildAsWASM)
+var heapAllocator = HeapAllocator{};
+
+const modAllocator = if (basis.build_options.buildAsWASM)
     std.heap.wasm_allocator
 else
     heapAllocator.allocator();
+
+//----------------------------------------------------
+
+// IO implementation:
+
+const IoImplementation = if (basis.build_options.buildAsWASM)
+    basis.null_io.NullIo
+else
+    std.Io.Threaded;
+
+var ioImplementation: IoImplementation = undefined;
+
+fn initIO() std.Io {
+    if (basis.build_options.buildAsWASM) {
+        ioImplementation = IoImplementation{};
+        return ioImplementation.io();
+    } else {
+        // We can use "modAllocator" here (rather than "mod.g.allocator") as long
+        // as the IO implementation is recreated on every hot-reload operation.
+        ioImplementation = .init(modAllocator, .{ .environ = .empty });
+
+        // ioBasic() basic leaves out networking functionality on Windows. We probably
+        // don't need that though, as all networking is handled in C/C++.
+        return ioImplementation.ioBasic();
+    }
+}
+
+fn deinitIO() void {
+    ioImplementation.deinit();
+}
 
 //----------------------------------------------------
 
@@ -60,22 +99,41 @@ export fn getVersionNumber(versionNumberType: u32) u32 {
     return if (versionNumberType == 0) basis.APIVersionNumber else meanslib.APIVersionNumber;
 }
 
-export fn initLibrary() void {
-    flyingscout.modController = basis.mod_controller.create(flyingscout.FlyingScoutModController, allocator);
+export fn initLibrary(callback: basis.components.ComponentRegistrationCallback) void {
+    const io = initIO();
+
+    // Note! Only pass modAllocator to mod.global_data. Use mod.g.allocator
+    // for the rest. mod.global_data contains the master allocator interface to use.
+    mod.global_data.create(mod, modAllocator, io);
+    basis.global_data.create(mod.g.allocator, mod.g.io);
+    goofy.global_data.create(mod.g.allocator, mod.g.io);
+    //vhl.global_data.create(mod.g.allocator, mod.g.io); // VHL doesn't build with WASM yet...
+
+    mod.modController = basis.mod_controller.create(ModCtrl, mod.g.allocator, mod.g.io);
+
+    basis.components.initComponentTypes(
+        &mod.components.list,
+        mod.g.allocator,
+        mod.g.io,
+        callback,
+    );
 }
 
 export fn deinitLibrary() void {
-    basis.mod_controller.destroy(flyingscout.modController);
+    basis.mod_controller.destroy(mod.modController);
     basis.components.deinitComponentTypes();
+
+    //vhl.global_data.destroy(); // VHL doesn't build with WASM yet...
+    goofy.global_data.destroy();
+    basis.global_data.destroy();
+    mod.global_data.destroy(mod);
+
+    deinitIO();
 
     if (UseStdDebugAllocator) {
         const daDeinit = heapAllocator.deinit();
         basis.sassertd(@src(), daDeinit == .ok, "Memory leaks detected.");
     }
-}
-
-export fn registerComponentTypes(callback: basis.components.ComponentRegistrationCallback) void {
-    basis.components.initComponentTypes(&flyingscout.components.list, allocator, callback);
 }
 
 //----------------------------------------------------

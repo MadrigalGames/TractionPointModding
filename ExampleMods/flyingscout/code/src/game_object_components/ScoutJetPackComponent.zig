@@ -143,8 +143,8 @@ pub const ScoutJetPackComponent = struct {
         if (self.context.onClient() and !self.context.inEditor()) {
             const thrust = self.thrust.get();
             if (thrust > ThrustEpsilon and self.context.isClientLocalAvatar()) {
-                const w: i32 = @intCast(self.renderer.getScreenWidth());
-                const h: i32 = @intCast(self.renderer.getScreenHeight());
+                const w: i32 = @intCast(self.renderer.getWindowWidth());
+                const h: i32 = @intCast(self.renderer.getWindowHeight());
 
                 var buf: [128]u8 = undefined;
                 const text = try std.fmt.bufPrint(&buf, "Thrust: {d:.2}", .{thrust});

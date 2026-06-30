@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -122,10 +122,10 @@ pub fn ArticulationGraph(comptime GraphNode: type, comptime ComponentContext: ty
         graphRoot: SceneNodePtr = .Null,
 
         // These are all the scene nodes in the graph, except for the graph root.
-        sceneNodes: [GraphSize]SceneNodePtr = [_]SceneNodePtr{.Null} ** GraphSize,
+        sceneNodes: [GraphSize]SceneNodePtr = @splat(.Null),
 
         // Each node in the graph may have a corresponding physics actor and joint.
-        physicsParts: [GraphSize]ArticulationGraphPhysicsPart = [_]ArticulationGraphPhysicsPart{.{}} ** GraphSize,
+        physicsParts: [GraphSize]ArticulationGraphPhysicsPart = @splat(.{}),
 
         // Values used to set up the joints. If you want to override these values,
         // set them before calling createPhysicsPart().

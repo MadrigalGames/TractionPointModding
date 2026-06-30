@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -47,7 +47,7 @@ pub const SoundEffect = struct {
     eventDesc: EventDescriptionPtr = .Null,
     eventInstance: EventInstancePtr = .Null,
 
-    paramIndices: [MaxParamIndexCount]u32 = [_]u32{InvalidParamIndex} ** MaxParamIndexCount,
+    paramIndices: [MaxParamIndexCount]u32 = @splat(InvalidParamIndex),
 
     //----------------------------------------------------
 

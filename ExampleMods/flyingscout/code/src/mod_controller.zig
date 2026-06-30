@@ -45,10 +45,10 @@ pub const FlyingScoutModController = struct {
     context: ModControllerContext,
     allocator: Allocator,
 
-    pub fn init(interface: ModControllerInterface, allocator: Allocator, cppPtr: basis.CppPtr) Self {
+    pub fn init(interface: ModControllerInterface, allocator: Allocator, io: std.Io, cppPtr: basis.CppPtr) Self {
         return Self{
             .interface = interface,
-            .context = ModControllerContext.init(allocator, cppPtr),
+            .context = ModControllerContext.init(allocator, io, cppPtr),
             .allocator = allocator,
         };
     }

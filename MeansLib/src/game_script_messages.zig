@@ -28,26 +28,8 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-const basis = @import("basis");
+// Keep in sync with "game/scripts/game_script_messages.as"
 
-pub const APIVersionNumber = 1;
-
-//----------------------------------------------------
-
-pub const main_lib_call_id = @import("main_lib_call_id.zig");
-pub const constants = @import("constants.zig");
-pub const input = @import("input.zig");
-pub const world = @import("world.zig");
-pub const gameplay_types = @import("gameplay_types.zig");
-pub const game_messages = @import("game_messages.zig");
-pub const articulation_graph = @import("articulation_graph.zig");
-pub const tag_flags = @import("tag_flags.zig");
-pub const ui_constants = @import("ui_constants.zig");
-pub const sound_effect = @import("sound_effect.zig");
-pub const sound_transform_calculator = @import("sound_transform_calculator.zig");
-pub const game_script_messages = @import("game_script_messages.zig");
-
-//----------------------------------------------------
-
-pub const SoundEffect = sound_effect.SoundEffect;
-pub const SoundTransformCalculator = sound_transform_calculator.SoundTransformCalculator;
+// Messages send to an object getting grabbed/released by the cargo crane.
+pub const CargoCraneAttached = "cargo_crane_attached";
+pub const CargoCraneReleased = "cargo_crane_released";

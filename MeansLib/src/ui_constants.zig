@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -57,14 +57,23 @@ pub const OptionsMenuViewScriptPath = "game/ui/scripts/options_menu_view.as";
 pub const GameOptionsMenuViewName = "GameOptionsMenu";
 pub const GameOptionsMenuViewScriptPath = "game/ui/scripts/game_options_menu_view.as";
 
-pub const VideoOptionsMenuViewName = "VideoOptionsMenu";
-pub const VideoOptionsMenuViewScriptPath = "game/ui/scripts/video_options_menu_view.as";
+pub const DisplayOptionsMenuViewName = "DisplayOptionsMenu";
+pub const DisplayOptionsMenuViewScriptPath = "game/ui/scripts/display_options_menu_view.as";
+
+pub const GraphicsOptionsMenuViewName = "GraphicsOptionsMenu";
+pub const GraphicsOptionsMenuViewScriptPath = "game/ui/scripts/graphics_options_menu_view.as";
 
 pub const AudioOptionsMenuViewName = "AudioOptionsMenu";
 pub const AudioOptionsMenuViewScriptPath = "game/ui/scripts/audio_options_menu_view.as";
 
 pub const ControlOptionsMenuViewName = "ControlOptionsMenu";
 pub const ControlOptionsMenuViewScriptPath = "game/ui/scripts/control_options_menu_view.as";
+
+pub const KeyBindingsMenuViewName = "KeyBindingsMenu";
+pub const KeyBindingsMenuViewScriptPath = "game/ui/scripts/key_bindings_menu_view.as";
+
+pub const GamepadLayoutMenuViewName = "GamepadLayoutMenu";
+pub const GamepadLayoutMenuViewScriptPath = "game/ui/scripts/gamepad_layout_menu_view.as";
 
 pub const LoadingScreenViewName = "LoadingScreen";
 pub const LoadingScreenViewScriptPath = "game/ui/scripts/loading_screen_view.as";
@@ -80,7 +89,7 @@ pub const GameOverMenuViewScriptPath = "game/ui/scripts/game_over_menu_view.as";
 
 // Dialog view script paths (see dialog_cache.zig):
 
-pub const ButtonlessDialogScriptPath = "";
+pub const ButtonlessDialogScriptPath = "game/ui/scripts/dialog/buttonless.as";
 pub const OneButtonDialogScriptPath = "game/ui/scripts/dialog/one_button.as";
 pub const TwoButtonDialogScriptPath = "game/ui/scripts/dialog/two_buttons.as";
 pub const TwoButtonDialogWithTimeoutScriptPath = "game/ui/scripts/dialog/two_buttons_with_timeout.as";
@@ -118,10 +127,13 @@ pub const Properties = struct {
     pub const MinigameHUDGoLabelVisible = "HUD/GoLabelVisible";
     pub const MinigameHUDFinishedLabelVisible = "HUD/FinishedLabelVisible";
 
-    pub const HUDSwitchVehicleMarkerVisible = "HUD/SwitchVehicleMarkerVisible";
-    pub const HUDSwitchVehicleMarkerPosition = "HUD/SwitchVehicleMarkerPosition";
+    pub const HUDUnstuckifierVisible = "HUD/UnstuckifierVisible";
+    pub const HUDUnstuckifierState = "HUD/UnstuckifierState";
+    pub const HUDUnstuckifierProgress = "HUD/UnstuckifierProgress";
 
     pub const InGameCampaignActive = "InGame/CampaignActive";
+
+    pub const InGameConversationActive = "InGame/ConversationActive";
 
     pub const Positions = struct {
         pub const CampaignMenuHeaderPart1 = "UIPos/CampaignMenuHeaderPart1";
@@ -134,14 +146,23 @@ pub const Properties = struct {
         pub const GameOptionsMenuHeaderPart1 = "UIPos/GameOptionsMenuHeaderPart1";
         pub const GameOptionsMenuHeaderPart2 = "UIPos/GameOptionsMenuHeaderPart2";
 
-        pub const VideoOptionsMenuHeaderPart1 = "UIPos/VideoOptionsMenuHeaderPart1";
-        pub const VideoOptionsMenuHeaderPart2 = "UIPos/VideoOptionsMenuHeaderPart2";
+        pub const DisplayOptionsMenuHeaderPart1 = "UIPos/DisplayOptionsMenuHeaderPart1";
+        pub const DisplayOptionsMenuHeaderPart2 = "UIPos/DisplayOptionsMenuHeaderPart2";
+
+        pub const GraphicsOptionsMenuHeaderPart1 = "UIPos/GraphicsOptionsMenuHeaderPart1";
+        pub const GraphicsOptionsMenuHeaderPart2 = "UIPos/GraphicsOptionsMenuHeaderPart2";
 
         pub const AudioOptionsMenuHeaderPart1 = "UIPos/AudioOptionsMenuHeaderPart1";
         pub const AudioOptionsMenuHeaderPart2 = "UIPos/AudioOptionsMenuHeaderPart2";
 
         pub const ControlOptionsMenuHeaderPart1 = "UIPos/ControlOptionsMenuHeaderPart1";
         pub const ControlOptionsMenuHeaderPart2 = "UIPos/ControlOptionsMenuHeaderPart2";
+
+        pub const KeyBindingsMenuHeaderPart1 = "UIPos/KeyBindingsMenuHeaderPart1";
+        pub const KeyBindingsMenuHeaderPart2 = "UIPos/KeyBindingsMenuHeaderPart2";
+
+        pub const GamepadLayoutMenuHeaderPart1 = "UIPos/GamepadLayoutMenuHeaderPart1";
+        pub const GamepadLayoutMenuHeaderPart2 = "UIPos/GamepadLayoutMenuHeaderPart2";
 
         pub const PauseMenuHeader = "UIPos/PauseMenuHeader";
     };
@@ -169,6 +190,18 @@ pub const UIMenuSkin = "menu";
 
 pub const UIColorHUDTurqoise = basis.Color.initRGBA(132, 198, 203, 255);
 pub const UIColorHUDWhite = basis.Color.initRGBA(255, 255, 255, 180);
+
+// Conversation interaction:
+
+// Localization key name for the "start conversation" interaction prompt. Resolved to a
+// LocalizationKey at runtime via means.localization.getLocalizationKeyByName.
+pub const ConversationInteractionPromptLocKey = "TEXT_UI_TALK_PROMPT";
+
+// HUD interaction-marker icons. Stage 1 is the far "you can interact here" discovery 
+// icon, stage 2 is shown on the selected target.
+pub const ConversationMarkerStage1IconPath = "game/ui/hud/speech_bubble_icon.binsvg";
+pub const ConversationMarkerStage2IconPath = "game/ui/hud/speech_bubble_icon.binsvg";
+pub const SwitchVehicleMarkerIconPath = "game/ui/hud/switch_vehicle_marker.binsvg";
 
 // Enums:
 

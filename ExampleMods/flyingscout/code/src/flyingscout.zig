@@ -39,6 +39,8 @@ const trampoline = @import("trampoline");
 
 // Namespaces:
 
+pub const global_data = @import("global_data.zig");
+
 pub const mod_controller = @import("mod_controller.zig");
 
 pub const components = @import("game_object_components/components.zig");
@@ -47,6 +49,6 @@ pub const components = @import("game_object_components/components.zig");
 
 pub const FlyingScoutModController = mod_controller.FlyingScoutModController;
 
-// The mod controller pointer.
-
+// The global data & mod controller pointers.
+pub var g: *global_data.LibraryGlobalData = undefined;
 pub var modController: *FlyingScoutModController = undefined;

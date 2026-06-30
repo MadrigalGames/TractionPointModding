@@ -1,4 +1,4 @@
-// Copyright 2018-2025 Madrigal Ltd.
+// Copyright 2018-2026 Madrigal Ltd.
 // 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -37,7 +37,7 @@ const basis = @import("basis");
 pub const CharacterID = enum(u32) {
     Narrator = 0,
     Diego,
-    MotherAI,
+    Mother,
     Steller,
     Rowan,
 };
@@ -45,7 +45,7 @@ pub const CharacterID = enum(u32) {
 pub const WorldLocationID = enum(u32) {
     RefineryIntro = 0,
     Refinery_Plane = 1,
-    Refinery_LiftStation = 2,
+    //Refinery_LiftStation = 2,
     InvalidID = 0xFFFFFFFF,
 
     pub fn asInt(self: WorldLocationID) u32 {
@@ -59,7 +59,7 @@ pub fn getCharacterNemoPath(character: CharacterID) []const u8 {
     return switch (character) {
         .Narrator => "char:/Characters/Narrator",
         .Diego => "char:/Characters/Diego",
-        .MotherAI => "char:/Characters/MotherAI",
+        .Mother => "char:/Characters/Mother",
         .Steller => "char:/Characters/Steller",
         .Rowan => "char:/Characters/Rowan",
     };
@@ -101,20 +101,20 @@ pub fn getWorldLocationByLevelPath(levelPath: []const u8) *const WorldLocation {
 const WORLD_LOCATIONS = [_]WorldLocation{
     WorldLocation{
         .id = WorldLocationID.RefineryIntro,
-        .levelPath = "map_refinery_intro/refinery_intro_blockout.binlevel",
+        .levelPath = "map_refinery_intro/refinery_intro.binlevel",
         .layersToLoad = &.{"Intro"},
         .spawnPointName = "",
     },
     WorldLocation{
         .id = WorldLocationID.Refinery_Plane,
-        .levelPath = "map_refinery/refinery_blockout.binlevel",
-        .layersToLoad = &.{"Mission_Elevator"}, // <-- Demo mission
+        .levelPath = "map_refinery/refinery.binlevel",
+        .layersToLoad = &.{ "Mission_Minerva", "Conversation_Florence" }, // <-- Demo mission
         .spawnPointName = "",
     },
-    WorldLocation{
-        .id = WorldLocationID.Refinery_LiftStation,
-        .levelPath = "map_refinery/refinery_blockout.binlevel",
-        .layersToLoad = &.{},
-        .spawnPointName = "",
-    },
+    // WorldLocation{
+    //     .id = WorldLocationID.Refinery_LiftStation,
+    //     .levelPath = "map_refinery/refinery.binlevel",
+    //     .layersToLoad = &.{},
+    //     .spawnPointName = "",
+    // },
 };

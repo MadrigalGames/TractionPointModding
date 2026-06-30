@@ -77,10 +77,10 @@ pub const FPCameraModController = struct {
 
     //----------------------------------------------------
 
-    pub fn init(interface: ModControllerInterface, allocator: Allocator, cppPtr: basis.CppPtr) Self {
+    pub fn init(interface: ModControllerInterface, allocator: Allocator, io: std.Io, cppPtr: basis.CppPtr) Self {
         return Self{
             .interface = interface,
-            .context = ModControllerContext.init(allocator, cppPtr),
+            .context = ModControllerContext.init(allocator, io, cppPtr),
             .allocator = allocator,
         };
     }
@@ -230,11 +230,16 @@ pub const FPCameraModController = struct {
         const typeName = go.getType();
 
         if (basis.string.eql(typeName, "Vehicles/Scout") or basis.string.eql(typeName, "Vehicles/FlyingScout")) {
-            return Vec3.init(0, 0.73, 0.9);
+            return .init(0, 0.73, 0.9);
         } else if (basis.string.eql(typeName, "Vehicles/Mother")) {
-            return Vec3.init(0, 5.5, 15.0);
+            return .init(0, 5.5, 15.0);
         } else if (basis.string.eql(typeName, "Vehicles/GripperTruck")) {
-            return Vec3.init(0, 2.1, 3.6);
+            return .init(0, 2.1, 3.6);
+        } else if (basis.string.eql(typeName, "Vehicles/SUV") or
+            basis.string.eql(typeName, "Vehicles/SUV2") or
+            basis.string.eql(typeName, "Vehicles/SUV3"))
+        {
+            return .init(-0.5, 0.8, 0.1);
         } else {
             return null;
         }
