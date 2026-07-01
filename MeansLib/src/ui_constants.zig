@@ -197,7 +197,7 @@ pub const UIColorHUDWhite = basis.Color.initRGBA(255, 255, 255, 180);
 // LocalizationKey at runtime via means.localization.getLocalizationKeyByName.
 pub const ConversationInteractionPromptLocKey = "TEXT_UI_TALK_PROMPT";
 
-// HUD interaction-marker icons. Stage 1 is the far "you can interact here" discovery 
+// HUD interaction-marker icons. Stage 1 is the far "you can interact here" discovery
 // icon, stage 2 is shown on the selected target.
 pub const ConversationMarkerStage1IconPath = "game/ui/hud/speech_bubble_icon.binsvg";
 pub const ConversationMarkerStage2IconPath = "game/ui/hud/speech_bubble_icon.binsvg";

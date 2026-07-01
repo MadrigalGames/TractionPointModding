@@ -30,7 +30,7 @@
 
 const basis = @import("basis");
 
-pub const APIVersionNumber = 1;
+pub const APIVersionNumber = 2;
 
 //----------------------------------------------------
 
