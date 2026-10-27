@@ -33,5 +33,5 @@ import basis;
 
 fn void initComponentTypes(ComponentRegCallback callback)
 {
-	registerScoutJetPackComponent(callback);
+	basis::components::initComponentType{ScoutJetPackComponent}(callback);
 }

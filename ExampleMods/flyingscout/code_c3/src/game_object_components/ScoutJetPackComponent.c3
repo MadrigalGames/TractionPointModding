@@ -36,24 +36,16 @@ import flyingscout::thruster_flame;
 
 //----------------------------------------------------
 
-fn void registerScoutJetPackComponent(ComponentRegCallback callback)
-{
-	basis::components::initComponentType{ScoutJetPackComponent}(
-		"flyingscout.ScoutJetPackComponent",
-		50,
-		callback);
-}
+const Vec3 LEFT_THRUSTER_LOCAL_POS @local = { -1.8f, 1.0f, 0.0f };
+const Vec3 RIGHT_THRUSTER_LOCAL_POS @local = { 1.8f, 1.0f, 0.0f };
 
-const Vec3 LEFT_THRUSTER_LOCAL_POS @local = { -1.8, 1.0, 0.0 };
-const Vec3 RIGHT_THRUSTER_LOCAL_POS @local = { 1.8, 1.0, 0.0 };
+const float THRUST_EPSILON @local = 0.01f;
+const float THRUST_CHANGE_SPEED @local = 0.03f;
 
-const float THRUST_EPSILON @local = 0.01;
-const float THRUST_CHANGE_SPEED @local = 0.03;
+const float MAIN_THRUST_POWER @local = 10000.0f;
+const float CORRECTION_THRUST_POWER @local = 1000.0f;
 
-const float MAIN_THRUST_POWER @local = 10000.0;
-const float CORRECTION_THRUST_POWER @local = 1000.0;
-
-struct ScoutJetPackComponent
+struct ScoutJetPackComponent @Component("flyingscout.ScoutJetPackComponent")
 {
 	AvatarTrackingComponent context;
 	PropagatedValue{float} thrust;
@@ -89,8 +81,8 @@ fn void ScoutJetPackComponent.onObjectCreated(&self)
 
 		// The visuals are offset a little bit from the position we apply
 		// the physical force. Thus the subtractions below.
-		Vec3 leftVisualOffset = { -0.02, 0.8, 0.3 };
-		Vec3 rightVisualOffset = { 0.02, 0.8, 0.3 };
+		Vec3 leftVisualOffset = { -0.02f, 0.8f, 0.3f };
+		Vec3 rightVisualOffset = { 0.02f, 0.8f, 0.3f };
 
 		self.leftThrusterFlame.init(self.renderer, self.context.transform.getRenderSceneNode(), LEFT_THRUSTER_LOCAL_POS - leftVisualOffset);
 		self.rightThrusterFlame.init(self.renderer, self.context.transform.getRenderSceneNode(), RIGHT_THRUSTER_LOCAL_POS - rightVisualOffset);
@@ -195,16 +187,16 @@ fn void ScoutJetPackComponent.preTick(&self, float tickDeltaTime)
 	if (rightDir.y < 0.0f)
 	{
 		// Apply force on the right.
-		Vec3 down = { 0.0, -1.0, 0.0 };
-		Vec3 localPos = { 1.8, 0.0, 0.0 };
+		Vec3 down = { 0.0f, -1.0f, 0.0f };
+		Vec3 localPos = { 1.8f, 0.0f, 0.0f };
 		Vec3 force = thrustDir * (rightDir.dot(down) * CORRECTION_THRUST_POWER);
 		self.physicsActor.addForce(force, worldMatrix.transformPoint(localPos), false);
 	}
 	else
 	{
 		// Apply force on the left.
-		Vec3 up = { 0.0, 1.0, 0.0 };
-		Vec3 localPos = { -1.8, 0.0, 0.0 };
+		Vec3 up = { 0.0f, 1.0f, 0.0f };
+		Vec3 localPos = { -1.8f, 0.0f, 0.0f };
 		Vec3 force = thrustDir * (rightDir.dot(up) * CORRECTION_THRUST_POWER);
 		self.physicsActor.addForce(force, worldMatrix.transformPoint(localPos), false);
 	}
@@ -212,16 +204,16 @@ fn void ScoutJetPackComponent.preTick(&self, float tickDeltaTime)
 	if (forwardDir.y < 0.0f)
 	{
 		// Apply force on the front.
-		Vec3 down = { 0.0, -1.0, 0.0 };
-		Vec3 localPos = { 0.0, 0.0, 1.9 };
+		Vec3 down = { 0.0f, -1.0f, 0.0f };
+		Vec3 localPos = { 0.0f, 0.0f, 1.9f };
 		Vec3 force = thrustDir * (forwardDir.dot(down) * CORRECTION_THRUST_POWER);
 		self.physicsActor.addForce(force, worldMatrix.transformPoint(localPos), false);
 	}
 	else
 	{
 		// Apply force on the back.
-		Vec3 up = { 0.0, 1.0, 0.0 };
-		Vec3 localPos = { 0.0, 0.0, -1.9 };
+		Vec3 up = { 0.0f, 1.0f, 0.0f };
+		Vec3 localPos = { 0.0f, 0.0f, -1.9f };
 		Vec3 force = thrustDir * (forwardDir.dot(up) * CORRECTION_THRUST_POWER);
 		self.physicsActor.addForce(force, worldMatrix.transformPoint(localPos), false);
 	}

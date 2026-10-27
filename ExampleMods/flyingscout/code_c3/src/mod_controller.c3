@@ -50,7 +50,7 @@ fn void FlyingScoutModController.onAppStartup(&self)
 	{
 		if (self.context.getAppMode() == AppMode.GAME)
 		{
-			basis::debug_overlay::addDebugSpawnableObjectType("Vehicles/FlyingScout", 2.0);
+			basis::debug_overlay::addDebugSpawnableObjectType("Vehicles/FlyingScout", 2.0f);
 		}
 
 		SoundBankData[1] soundBanks = {

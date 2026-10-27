@@ -31,7 +31,7 @@
 module flyingscout::thruster_flame;
 import basis;
 
-const float TIME_BETWEEN_FLAME_UPDATES @local = 0.1;
+const float TIME_BETWEEN_FLAME_UPDATES @local = 0.1f;
 const sz FLAME_COUNT = 3;
 
 struct ThrusterFlame
@@ -91,7 +91,7 @@ fn void ThrusterFlame.init(&self, RendererPtr renderer, SceneNodePtr parentScene
 	// Create the mesh instances.
 
 	MaterialPtr[1] materials = { self.material };
-	for (sz i = 0; i < FLAME_COUNT; i++)
+	for (sz i = 0; i < FLAME_COUNT; ++i)
 	{
 		self.meshInstances[i] = self.renderScene.createDynamicMeshInstance(self.meshes[i], materials[..]);
 		self.flameSceneNode.attachMeshInstance(self.meshInstances[i]);
@@ -105,7 +105,7 @@ fn void ThrusterFlame.init(&self, RendererPtr renderer, SceneNodePtr parentScene
 fn void ThrusterFlame.deinit(&self)
 {
 	self.flameSceneNode.detachAll();
-	for (sz i = 0; i < FLAME_COUNT; i++)
+	for (sz i = 0; i < FLAME_COUNT; ++i)
 	{
 		self.renderScene.destroyMeshInstance(self.meshInstances[i]);
 		self.meshes[i].releaseAndZero();
@@ -140,7 +140,7 @@ fn void ThrusterFlame.update(&self, float deltaTime, float thrust)
 
 fn void ThrusterFlame.updateFlameVisibility(&self)
 {
-	for (sz i = 0; i < FLAME_COUNT; i++)
+	for (sz i = 0; i < FLAME_COUNT; ++i)
 	{
 		self.meshInstances[i].setVisible(i == self.visibleFlameIndex);
 	}
